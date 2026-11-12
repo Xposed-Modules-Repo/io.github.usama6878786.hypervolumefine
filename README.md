@@ -21,9 +21,9 @@ LSPosed 模块 · 需 root · 基于 libxposed **API 102** · 作用域：系统
 - **面板内显示档位**：调音量时在系统音量面板里直接显示当前是第几档（画在面板窗口内部，不是悬浮窗）
 - **参数可视化调**：档位数、细调区间、步进、吸附粒度都有界面可调，改完提示重启生效
 
-| 音量面板 | 设置页（浅色） | 设置页（深色） | 改动提示 |
-|---|---|---|---|
-| ![面板](docs/screenshots/panel.png) | ![浅色](docs/screenshots/app-light.jpg) | ![深色](docs/screenshots/app-dark.jpg) | ![提示](docs/screenshots/toast.jpg) |
+| 音量面板 | 改动提示 |
+|---|---|
+| ![面板](docs/screenshots/panel.png) | ![提示](docs/screenshots/toast.jpg) |
 
 ---
 
