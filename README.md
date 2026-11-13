@@ -19,8 +19,7 @@ LSPosed 模块 · 需 root · 基于 libxposed **API 102** · 作用域：系统
 - **低音量区更细**：默认 0~30 档每按一次走 1 档，30 档以上每步 4 档，避免调一次跳太远
 - **滑条也能停准**：拖音量条时会吸附到整数档，不会卡在 47.3 档这种位置
 - **面板内显示档位**：调音量时在系统音量面板里直接显示当前是第几档（画在面板窗口内部，不是悬浮窗）
-- **低音量区更细、向上平滑过渡**（v2.7）：低音量每按一次只走 1 档（跨度小、更细腻），
-  越过细调区间后按曲线逐渐加大到设定跨度，不是硬切换，越往上恢复越快
+- **低音量区更细**：细调区间内每按一次走「低音量步进」档（默认 1），越过区间按「高音量步进」档（默认 4）
 - **参数可视化调**：档位数、细调区间、步进、吸附粒度都有界面可调，改完提示重启生效
 
 | 音量面板 | 改动提示 |
@@ -191,8 +190,8 @@ adb install -r --no-incremental VolumeFine-2.4.apk
 
 # 3. 想改参数可以打开「Hyper音量细调」App，或用 adb：
 adb shell settings put system volume_fine_steps 100      # 档位数，15~120
-adb shell settings put system volume_fine_threshold 30   # 细调区间结束的档位（此后开始平滑加大跨度）
-adb shell settings put system volume_fine_coarse 4       # 到最大档位时每键跨几档（中间按二次曲线过渡）
+adb shell settings put system volume_fine_threshold 30   # 低于该档位时每次 1 档
+adb shell settings put system volume_fine_coarse 4       # 高于阈值时每次几档
 adb shell settings put system volume_fine_enabled 1      # 0 = 关闭
 adb shell settings put system volume_fine_debug 0        # 1 = 输出详细日志
 ```
